@@ -1,7 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
-using SuperheroDirectory.Domain.Models;
+﻿using SuperheroDirectory.Domain.Models;
 using SuperheroDirectory.Infrastructure.Data;
-using Swashbuckle.AspNetCore.Filters;
 
 namespace SuperheroDirectory.API.Extensions
 {
@@ -24,15 +22,15 @@ namespace SuperheroDirectory.API.Extensions
         {
             app.MapGroup("/identity").MapIdentityApi<User>();
 
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            //if (app.Environment.IsDevelopment())
+            //{
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            //}
 
             app.UseRateLimiter();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

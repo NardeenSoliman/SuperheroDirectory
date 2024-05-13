@@ -32,6 +32,13 @@ namespace SuperheroDirectory.Application.Services
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        /// search superheroes by name
+        /// by calling superhero api endpoint
+        /// and cache result
+        /// </summary>
+        /// <param name="superheroName"></param>
+        /// <returns></returns>
         public async Task<BaseResponse> SearchSuperhero(string superheroName)
         {
             SearchSuperheroResult searchResult = await _superheroClient.SearchSuperhero(superheroName);
@@ -46,6 +53,13 @@ namespace SuperheroDirectory.Application.Services
 
             return searchResult;
         }
+
+        /// <summary>
+        /// store user favourite superheroes
+        /// in database
+        /// </summary>
+        /// <param name="favoriteSuperheroes"></param>
+        /// <returns></returns>
         public async Task<BaseResponse> StoreFavorite(List<StoreFavoriteSuperhero> favoriteSuperheroes)
         {
             if (favoriteSuperheroes.Any(x => !x.IsValid()))
@@ -86,6 +100,11 @@ namespace SuperheroDirectory.Application.Services
             return new BaseResponse() { Response = ApiResponse.Success.ToString() };
         }
 
+        /// <summary>
+        /// get user favourite superheroes
+        /// from database
+        /// </summary>
+        /// <returns></returns>
         public async Task<GetFavoriteSuperheroesResult> GetFavourites()
         {
             List<FavouriteSuperhero> favouriteSuperheros = await _superheroRepository.GetFavourites();
@@ -98,6 +117,13 @@ namespace SuperheroDirectory.Application.Services
             };
         }
 
+        /// <summary>
+        /// get superhero by id
+        /// by calling superhero api endpoint
+        /// and cache result
+        /// </summary>
+        /// <param name="superheroId"></param>
+        /// <returns></returns>
         private async Task<GetSuperheroResult> GetSuperhero(string superheroId)
         {
             GetSuperheroResult superheroInfo = await _superheroClient.GetSuperheroById(superheroId);
