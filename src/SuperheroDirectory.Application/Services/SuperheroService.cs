@@ -6,6 +6,7 @@ using SuperheroDirectory.Application.Constants;
 using SuperheroDirectory.Application.Dtos;
 using SuperheroDirectory.Application.Dtos.Base;
 using SuperheroDirectory.Application.Enums;
+using SuperheroDirectory.Application.Mappers;
 using SuperheroDirectory.Application.Services.Abstractions;
 using SuperheroDirectory.Domain.Models;
 using SuperheroDirectory.Domain.Repositories;
@@ -80,6 +81,18 @@ namespace SuperheroDirectory.Application.Services
             await _superheroRepository.AddFavourites(heroesToBeStored);
 
             return new BaseResponse() { Response = ApiResponse.Success.ToString() };
+        }
+
+        public async Task<GetFavoriteSuperheroesResult> GetFavourites()
+        {
+            List<FavouriteSuperhero> favouriteSuperheros = await _superheroRepository.GetFavourites();
+            List<RetreiveFavoriteSuperhero> favoriteSuperheroes = new RetrieveFavouriteSuperheroMapper().MapList(favouriteSuperheros);
+
+            return new GetFavoriteSuperheroesResult()
+            {
+                Response = ApiResponse.Success.ToString(),
+                FavoriteSuperheroes = favoriteSuperheroes
+            };
         }
 
         private async Task<GetSuperheroResult> GetSuperhero(string superheroId)

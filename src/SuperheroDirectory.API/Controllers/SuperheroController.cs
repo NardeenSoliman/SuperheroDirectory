@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SuperheroDirectory.Application.Clients.Dtos;
 using SuperheroDirectory.Application.Dtos;
 using SuperheroDirectory.Application.Dtos.Base;
 using SuperheroDirectory.Application.Services.Abstractions;
@@ -28,6 +29,12 @@ namespace SuperheroDirectory.API.Controllers
         public async Task<BaseResponse> StoreFavorite(List<StoreFavoriteSuperhero> favoriteSuperheroes)
         {
             return await _superheroService.StoreFavorite(favoriteSuperheroes);
+        }
+
+        [HttpGet("favorites")]
+        public async Task<GetFavoriteSuperheroesResult> GetFavorite()
+        {
+            return await _superheroService.GetFavourites();
         }
     }
 }
