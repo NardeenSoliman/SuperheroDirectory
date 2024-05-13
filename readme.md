@@ -30,7 +30,7 @@ Run test cases in `SuperheroDirectory.Tests` and make sure you passed your acces
 - Favorites `api/v1/favorites`
 
 ## Application Flow
-1- Start by `registering` new user using `register` endpoint, then `login` using `email` & `password` only.
+1- Start by `registering` new user using `register` endpoint, then `login` using `email` & `password` only.<br/>
 2- `Search` for your favorite hero then `store` followed by getting `favorites` for full flow.
 
 ## Enhancements
