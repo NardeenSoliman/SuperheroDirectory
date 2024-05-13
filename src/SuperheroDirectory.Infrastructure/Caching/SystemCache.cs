@@ -16,5 +16,10 @@ namespace SuperheroDirectory.Infrastructure.Caching
         {
             _cache.Set(key, value);
         }
+
+        public TItem Get<TItem>(string key)
+        {
+            return _cache.Get<TItem>(key);
+        }
     }
 }

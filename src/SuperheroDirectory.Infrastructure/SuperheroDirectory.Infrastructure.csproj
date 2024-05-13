@@ -12,10 +12,18 @@
 	<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 	<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
 	<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.4" />
+	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SuperheroDirectory.Application\SuperheroDirectory.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

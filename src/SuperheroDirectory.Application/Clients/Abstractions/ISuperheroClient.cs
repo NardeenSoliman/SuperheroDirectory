@@ -5,5 +5,6 @@ namespace SuperheroDirectory.Application.Clients.Abstractions
     public interface ISuperheroClient
     {
         Task<SearchSuperheroResult> SearchSuperhero(string superheroName);
+        Task<GetSuperheroResult> GetSuperheroById(string superheroId);
     }
 }

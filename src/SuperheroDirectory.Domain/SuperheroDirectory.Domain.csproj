@@ -5,4 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+	<Folder Include="Repositories\" />
+	<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.4" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
