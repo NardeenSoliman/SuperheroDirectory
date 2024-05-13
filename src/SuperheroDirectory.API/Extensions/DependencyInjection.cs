@@ -12,17 +12,9 @@ namespace SuperheroDirectory.API.Extensions
             services.AddControllers();
 
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen(options =>
-            {
-                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-                options.OperationFilter<SecurityRequirementsOperationFilter>();
-            });
+            services.AddSwagger();
             services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddToknBuckerRateLimiter();
 
             return services;
         }
@@ -36,6 +28,8 @@ namespace SuperheroDirectory.API.Extensions
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseRateLimiter();
 
             app.UseHttpsRedirection();
 
