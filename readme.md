@@ -20,13 +20,13 @@ Run
 `docker run --rm -it -p 9000:8080 superhero-directory -e "SuperheroApiConfig:AccessToken=YOUR_ACCESS_TOKEN"`
 
 ## How to test the application
-Run test cases in `SuperheroDirectory.Tests` and make sure you passed your access token in `appsettings.json` before running
+Run test cases in `SuperheroDirectory.Tests` and make sure you passed your access token in `appsettings.json` before running.
 
 ## List of available APIs
 - Register `identity/register`
 - Login `identity/login`
 - Search `api/v1/search/{superheroName}`
-- Store favorite `api/vi/store/favorites`
+- Store favorite `api/v1/store/favorites`
 - Favorites `api/v1/favorites`
 
 ## Application Flow
