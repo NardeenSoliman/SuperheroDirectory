@@ -14,3 +14,5 @@ var app = builder.Build();
 app.UseApiServices();
 
 app.Run();
+
+public partial class Program { }
