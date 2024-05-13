@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using SuperheroDirectory.API.Constants;
@@ -12,7 +13,8 @@ namespace SuperheroDirectory.API.Controllers
     [Authorize]
     [EnableRateLimiting(ApiConstants.TokenBucketPolicy)]
     [ApiController]
-    [Route("api/")]
+    [Route("api/v{v:apiVersion}")]
+    [ApiVersion("1")]
     public class SuperheroController : ControllerBase
     {
         public ISuperheroService _superheroService;

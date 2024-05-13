@@ -15,6 +15,7 @@ namespace SuperheroDirectory.API.Extensions
             services.AddSwagger();
             services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<AppDbContext>();
             services.AddToknBuckerRateLimiter();
+            services.AddVersioning();
 
             return services;
         }
