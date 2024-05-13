@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SuperheroDirectory.Application;
 using SuperheroDirectory.Application.Caching;
 using SuperheroDirectory.Application.Clients.Abstractions;
 using SuperheroDirectory.Domain.Repositories;
@@ -23,6 +24,7 @@ namespace SuperheroDirectory.Infrastructure.Extensions
             services.AddSingleton<ISystemCache, SystemCache>();
             services.AddScoped<ISuperheroRepository, SuperheroRepository>();
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("SuperheroDB"));
+            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<AppDbContext>());
 
             return services;
         }

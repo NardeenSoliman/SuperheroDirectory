@@ -20,14 +20,16 @@ namespace SuperheroDirectory.Application.Services
         private readonly ISuperheroClient _superheroClient;
         private readonly IHttpContextAccessor _httpAccessor;
         private readonly ISuperheroRepository _superheroRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
         public SuperheroService(ISuperheroClient superheroClient, ISystemCache cacheService, IHttpContextAccessor httpAccessor,
-            ISuperheroRepository superheroRepository)
+            ISuperheroRepository superheroRepository, IUnitOfWork unitOfWork)
         {
             _cacheService = cacheService;
             _superheroClient = superheroClient;
             _httpAccessor = httpAccessor;
             _superheroRepository = superheroRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<BaseResponse> SearchSuperhero(string superheroName)
@@ -79,6 +81,7 @@ namespace SuperheroDirectory.Application.Services
             }));
 
             await _superheroRepository.AddFavourites(heroesToBeStored);
+            await _unitOfWork.SaveChangesAsync();
 
             return new BaseResponse() { Response = ApiResponse.Success.ToString() };
         }

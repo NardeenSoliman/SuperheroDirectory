@@ -17,7 +17,6 @@ namespace SuperheroDirectory.Infrastructure.Repositories
         public async Task AddFavourites(List<FavouriteSuperhero> superheros)
         {
             await _context.FavouriteSuperheroes.AddRangeAsync(superheros);
-            await _context.SaveChangesAsync();
         }
 
         public async Task<List<FavouriteSuperhero>> GetFavourites()
