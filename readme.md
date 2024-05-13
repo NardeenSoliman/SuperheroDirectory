@@ -19,6 +19,8 @@ Build
 Run
 `docker run --rm -d -p 9000:8080 superhero-directory -e "SuperheroApiConfig:AccessToken=YOUR_ACCESS_TOKEN"`
 
+Swagger `http://localhost:9000/swagger/index.html`
+
 ## How to test the application
 Run test cases in `SuperheroDirectory.Tests` and make sure you passed your access token in `appsettings.json` before running.
 
