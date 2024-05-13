@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +11,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SuperheroDirectory.Domain\SuperheroDirectory.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Clients\Dtos\" />
+    <Folder Include="Dtos\Base\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Services\Abstractions\" />
   </ItemGroup>
 
 </Project>
