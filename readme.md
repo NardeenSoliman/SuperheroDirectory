@@ -17,7 +17,7 @@ Build
 `docker build -t superhero-directory -f src/SuperheroDirectory.API/Dockerfile .`
 
 Run
-`docker run --rm -it -p 9000:8080 superhero-directory -e "SuperheroApiConfig:AccessToken=YOUR_ACCESS_TOKEN"`
+`docker run --rm -d -p 9000:8080 superhero-directory -e "SuperheroApiConfig:AccessToken=YOUR_ACCESS_TOKEN"`
 
 ## How to test the application
 Run test cases in `SuperheroDirectory.Tests` and make sure you passed your access token in `appsettings.json` before running.
